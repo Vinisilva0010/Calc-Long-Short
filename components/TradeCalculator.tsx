@@ -6,6 +6,7 @@ import { calculateTrade, formatCurrency, formatPercentage } from '@/utils/tradeC
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import TradeForm from './TradeForm';
 import TradeResultsComponent from './TradeResults';
+import PWAInstallPrompt from './PWAInstallPrompt';
 
 const initialTradeData: TradeData = {
   tradeType: 'long',
@@ -85,6 +86,9 @@ export default function TradeCalculator() {
           <span className="text-neon-purple">⚡</span> PWA Ready - Instale em seu dispositivo
         </p>
       </div>
+
+      {/* PWA Install Prompt */}
+      <PWAInstallPrompt />
     </div>
   );
 }

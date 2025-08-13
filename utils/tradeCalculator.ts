@@ -44,34 +44,38 @@ export function calculateTrade(data: TradeData): TradeResults {
     };
   }
 
-  // Cálculo da posição total (valor investido * alavancagem)
-  const positionValue = investment * leverage;
-  
-  // Margem usada (valor investido sem alavancagem)
+  // Margem usada (valor que você está realmente investindo)
   const marginUsed = investment;
+  
+  // Valor total da posição com alavancagem
+  const positionValue = investment * leverage;
 
-  // Quantidade de moedas que pode comprar
+  // Quantidade de moedas/tokens baseada no valor da posição
   const quantity = positionValue / entryPrice;
 
   let profitUSD = 0;
   let lossUSD = 0;
 
-  // Cálculo do lucro baseado no tipo de trade
+  // Cálculo do lucro/prejuízo baseado no tipo de trade
   if (tradeType === 'long') {
-    // Long: lucro quando preço sobe
-    profitUSD = (exitPrice - entryPrice) * quantity;
+    // Long: lucro quando preço sobe, prejuízo quando desce
+    const priceDifference = exitPrice - entryPrice;
+    profitUSD = priceDifference * quantity;
     
-    // Se há stop loss, calcular prejuízo
+    // Se há stop loss, calcular prejuízo no stop
     if (stopLoss && stopLoss > 0) {
-      lossUSD = Math.abs((stopLoss - entryPrice) * quantity);
+      const stopLossDifference = stopLoss - entryPrice;
+      lossUSD = Math.abs(stopLossDifference * quantity);
     }
   } else {
-    // Short: lucro quando preço desce
-    profitUSD = (entryPrice - exitPrice) * quantity;
+    // Short: lucro quando preço desce, prejuízo quando sobe
+    const priceDifference = entryPrice - exitPrice;
+    profitUSD = priceDifference * quantity;
     
-    // Se há stop loss, calcular prejuízo
+    // Se há stop loss, calcular prejuízo no stop
     if (stopLoss && stopLoss > 0) {
-      lossUSD = Math.abs((entryPrice - stopLoss) * quantity);
+      const stopLossDifference = stopLoss - entryPrice;
+      lossUSD = Math.abs(stopLossDifference * quantity);
     }
   }
 
