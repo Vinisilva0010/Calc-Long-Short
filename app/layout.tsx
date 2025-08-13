@@ -5,8 +5,6 @@ export const metadata: Metadata = {
   title: 'Zanvexis TradeCalc PRO',
   description: 'Calculadora profissional para trades Long e Short com tema cyberpunk futurista',
   manifest: '/manifest.json',
-  themeColor: '#a855f7',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
@@ -21,6 +19,14 @@ export const metadata: Metadata = {
       { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
     ],
   },
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: '#a855f7',
 }
 
 export default function RootLayout({
