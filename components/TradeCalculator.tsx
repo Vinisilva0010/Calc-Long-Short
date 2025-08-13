@@ -7,6 +7,7 @@ import { useLocalStorage } from '@/hooks/useLocalStorage';
 import TradeForm from './TradeForm';
 import TradeResultsComponent from './TradeResults';
 import PWAInstallPrompt from './PWAInstallPrompt';
+import PWABanner from './PWABanner';
 
 const initialTradeData: TradeData = {
   tradeType: 'long',
@@ -47,7 +48,11 @@ export default function TradeCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <>
+      {/* PWA Install Banner */}
+      <PWABanner />
+      
+      <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-6xl font-black cyber-text mb-4">
@@ -87,8 +92,9 @@ export default function TradeCalculator() {
         </p>
       </div>
 
-      {/* PWA Install Prompt */}
-      <PWAInstallPrompt />
-    </div>
+        {/* PWA Install Prompt */}
+        <PWAInstallPrompt />
+      </div>
+    </>
   );
 }
