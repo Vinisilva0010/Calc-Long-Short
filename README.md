@@ -230,3 +230,4 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 **⚡ Desenvolvido com Next.js 14, TypeScript e muita cafeína! ☕**
 
 *© 2024 Zanvexis TradeCalc PRO - Todos os direitos reservados*
+

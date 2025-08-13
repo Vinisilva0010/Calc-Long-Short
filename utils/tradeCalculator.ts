@@ -115,3 +115,4 @@ export function formatCurrency(value: number, currency: 'USD' | 'BRL' = 'USD'): 
 export function formatPercentage(value: number): string {
   return `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`;
 }
+

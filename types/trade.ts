@@ -23,3 +23,4 @@ export interface TradeResults {
   isValidTrade: boolean;
   errorMessage?: string;
 }
+

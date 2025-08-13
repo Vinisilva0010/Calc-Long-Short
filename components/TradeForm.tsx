@@ -168,3 +168,4 @@ export default function TradeForm({ data, onChange, onReset, onSave }: TradeForm
     </div>
   );
 }
+
